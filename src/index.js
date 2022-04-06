@@ -1,28 +1,24 @@
-// const { createElement } = require("react");
-var React = require("react");
-var ReactDOM = require("react-dom");
-
-// ReactDOM.render(<div>
-//   <h1>Hello World!</h1>
-//   <p>This is a paragraph</p>
-//   </div>
-//   , document.getElementById("root"));
-
-//HTML elements are picked by Babel compiler and then converted into javascript
-//Babel is inside react component
-
-// var h1 = document.createElement("h1");
-// h1.innerHTML = "This is JSX";
-// document.getElementById("root").appendChild(h1);
-
-const fname = "Mani";
-const lname = "Arora";
-
+import React from "react";
+import ReactDOM from "react-dom";
+const today = new Date();
+const time = today.getHours();
+let greeting;
+const customStyle = {
+  color: ""
+};
+if (time < 12) {
+  greeting = "Morning";
+  customStyle.color = "red";
+} else if (time < 18) {
+  greeting = "Afternoon";
+  customStyle.color = "green";
+} else {
+  greeting = "Night";
+  customStyle.color = "blue";
+}
 ReactDOM.render(
-  <h1>
-    Hello {fname} {`${lname}`}!
+  <h1 class="heading" style={customStyle}>
+    Good {greeting}
   </h1>,
   document.getElementById("root")
 );
-//We can write any javascript expression(something which evaluate to an value) inside {}, but we cannot write
-//statements like if statement
